@@ -1,0 +1,24 @@
+note over browser:
+User enters the note
+and submits it. 
+end note
+
+browser->server: HTTP POST content-type: application/json Payload: { content:"...", date:"..."} https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+
+
+note over server:
+adds note to the list.
+sends 201 showing browser
+that the note is added
+end note
+
+server-->browser: HTTP 201
+
+
+note over browser:
+browser adds note
+to the list and shows it
+browser waits for the user 
+to submit another form. 
+end note
+
