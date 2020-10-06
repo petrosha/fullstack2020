@@ -12,15 +12,9 @@ const Header = (props) => {
 const Content = (props) => {
   return (
     <>
-      <p>
-        {props.data.part1.name} {props.data.part1.exercises }
-      </p>
-      <p>
-        {props.data.part2.name} {props.data.part2.exercises }
-      </p>
-      <p>
-        {props.data.part3.name} {props.data.part3.exercises }
-      </p>
+      <Part data={props.data.part1} />
+      <Part data={props.data.part2} />
+      <Part data={props.data.part3} />
     </>
   )
 }
@@ -28,7 +22,15 @@ const Content = (props) => {
 const Total = (props) => {
   return (
     <>
-       <p>Number of exercises {props.exercises}</p>
+      <p>Number of exercises {props.exercises}</p>
+    </>
+  )
+}
+
+const Part = (props) => {
+  return (
+    <>
+      <p>{props.data.name} {props.data.exercises}</p>
     </>
   )
 }
@@ -42,7 +44,7 @@ const App = () => {
   const part3 = 'State of a component';
   const exercises3 = 14;
 
-  //object to use one argument insted of 6 in the Content component. 
+  //object to use one argument insted of 6 in the Content component.
   const contentData = {
     part1: {
       name: part1,
@@ -62,11 +64,10 @@ const App = () => {
     <>
       <Header name={course} />
       <Content data={contentData} />
-      <Total exercises={exercises1+exercises2+exercises3} />
+      <Total exercises={exercises1 + exercises2 + exercises3} />
     </>
   )
 
 }
-
 
 ReactDOM.render(<App />, document.getElementById('root'));
